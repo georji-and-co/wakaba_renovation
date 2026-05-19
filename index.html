@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>若葉リフォーム株式会社 | 草加市の外壁塗装・屋根塗装専門店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@200;300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   RESET & ROOT
+───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1c2233;
+  --ink-60:rgba(28,34,51,.6);
+  --ink-30:rgba(28,34,51,.3);
+  --ink-10:rgba(28,34,51,.1);
+  --paper:#f5f0e8;
+  --paper-dark:#ede7d9;
+  --bone:#d6cdb8;
+  --rust:#8b3a2a;
+  --rust-pale:#e8d5d0;
+  --sage:#4a5c4e;
+  --gold:#b59a5e;
+  --gold-pale:#e8dfc8;
+  --navy:#1e2f52;
+  --navy-mid:#253666;
+  --navy-deep:#16233d;
+  --navy-light:#2e4275;
+  --w:clamp(320px,100vw,1600px);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans JP',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM CURSOR
+───────────────────────────────────────── */
+#cursor{
+  position:fixed;width:10px;height:10px;
+  background:var(--rust);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s,height .25s,background .25s;
+  mix-blend-mode:multiply;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid var(--rust);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:all .12s ease;
+  opacity:.5;
+}
+body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:22px;height:22px;background:var(--gold)}
+body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{opacity:0}
+
+/* ─────────────────────────────────────────
+   GRAIN OVERLAY
+───────────────────────────────────────── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9000;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.035;
+}
+
+/* ─────────────────────────────────────────
+   HEADER
+───────────────────────────────────────── */
+header{
+  position:fixed;top:0;left:0;right:0;
+  z-index:800;
+  padding:1.25rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(245,240,232,.72);
+  backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  border-bottom:1px solid rgba(182,155,94,.2);
+  transition:padding .4s;
+}
+header.scrolled{padding:.9rem 3rem}
+.logo-wordmark{
+  font-family:'Shippori Mincho',serif;
+  font-size:17px;letter-spacing:.18em;
+  color:var(--ink);font-weight:500;
+  text-decoration:none;
+}
+.logo-wordmark span{
+  display:block;font-family:'EB Garamond',serif;
+  font-size:10px;letter-spacing:.35em;color:var(--ink-60);
+  font-style:italic;margin-top:2px;
+}
+nav{display:flex;gap:2.5rem;align-items:center}
+nav a{
+  font-size:11px;letter-spacing:.2em;
+  color:var(--ink-60);text-decoration:none;
+  font-weight:400;transition:color .2s;
+  text-transform:uppercase;
+}
+nav a:hover{color:var(--rust)}
+.nav-contact{
+  padding:.55rem 1.4rem;
+  border:1px solid var(--ink-30);
+  border-radius:0;
+  font-size:10px;letter-spacing:.25em;color:var(--ink);
+  text-decoration:none;font-weight:500;
+  text-transform:uppercase;
+  transition:all .25s;
+}
+.nav-contact:hover{background:var(--ink);color:var(--paper)}
+
+/* ─────────────────────────────────────────
+   SECTION: HERO
+───────────────────────────────────────── */
+.hero{
+  min-height:100vh;position:relative;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+  background:#16233d;
+}
+/* Parallax image layer — real photo + navy overlay */
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(160deg,rgba(22,35,61,.88) 0%,rgba(22,35,61,.45) 55%,rgba(22,35,61,.72) 100%);
+  transform-origin:center;
+  will-change:transform;
+  z-index:1;
+}
+.hero-bg-img{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+  transform-origin:center;
+  will-change:transform;
+  z-index:0;
+}
+/* Architectural line art overlay */
+.hero-arch{
+  position:absolute;right:5%;bottom:0;
+  width:42%;height:100%;
+  opacity:.1;
+  z-index:2;
+}
+.hero-vol{
+  position:absolute;
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(120px,18vw,260px);
+  font-weight:800;
+  color:rgba(255,255,255,.05);
+  line-height:1;
+  letter-spacing:-.02em;
+  top:50%;left:-2%;
+  transform:translateY(-50%);
+  pointer-events:none;user-select:none;
+  white-space:nowrap;
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 8% 10vh;
+  max-width:1400px;
+  width:100%;
+}
+/* Golden ratio positioning — statement sits at ~38% from bottom */
+.hero-statement{
+  position:absolute;
+  left:8%;
+  top:38%;
+  transform:translateY(-50%);
+  z-index:3;
+  max-width:600px;
+}
+.hero-statement-en{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(11px,1vw,13px);
+  color:var(--gold);
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.hero-statement-en::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero-h1{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(38px,6vw,80px);
+  font-weight:700;color:#f5f0e8;
+  line-height:1.3;letter-spacing:.04em;
+  margin-bottom:2rem;
+}
+.hero-h1 em{
+  display:block;font-style:normal;
+  font-size:.55em;font-weight:400;
+  color:rgba(245,240,232,.6);
+  letter-spacing:.12em;margin-top:.3em;
+}
+.hero-scroll{
+  position:absolute;right:6%;bottom:8%;
+  display:flex;flex-direction:column;
+  align-items:center;gap:.75rem;z-index:3;
+}
+.hero-scroll span{
+  font-size:9px;letter-spacing:.35em;
+  color:rgba(245,240,232,.4);text-transform:uppercase;
+  writing-mode:vertical-rl;
+}
+.hero-scroll-line{
+  width:1px;height:80px;
+  background:linear-gradient(to bottom,rgba(245,240,232,.4),transparent);
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+.hero-meta{
+  position:absolute;bottom:8%;left:8%;z-index:3;
+  display:flex;gap:3rem;
+}
+.hero-meta-item{
+  display:flex;flex-direction:column;gap:.4rem;
+}
+.hero-meta-item dt{
+  font-size:9px;letter-spacing:.3em;
+  color:rgba(245,240,232,.35);text-transform:uppercase;
+}
+.hero-meta-item dd{
+  font-size:13px;color:rgba(245,240,232,.7);
+  font-weight:300;
+}
+
+/* ─────────────────────────────────────────
+   SECTION: PHILOSOPHY
+───────────────────────────────────────── */
+.philosophy{
+  background:var(--paper);
+  padding:14vmin 0;
+  position:relative;overflow:hidden;
+}
+.philosophy-bg-text{
+  position:absolute;
+  font-family:'EB Garamond',serif;
+  font-size:clamp(80px,14vw,200px);
+  font-weight:400;font-style:italic;
+  color:rgba(14,14,12,.04);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;pointer-events:none;user-select:none;
+}
+.philosophy-inner{
+  max-width:1200px;margin:0 auto;padding:0 6%;
+  display:grid;grid-template-columns:1fr 2px 1fr;
+  gap:0 6%;align-items:start;
+}
+.philosophy-divider{background:var(--bone);align-self:stretch;margin:2rem 0}
+.philosophy-left{padding-top:4rem}
+.philosophy-label{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:.3em;color:var(--gold);
+  margin-bottom:2rem;
+}
+/* Vertical writing for Japanese statement */
+.philosophy-tate{
+  writing-mode:vertical-rl;
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(22px,3vw,38px);
+  font-weight:600;
+  line-height:2;letter-spacing:.15em;
+  color:var(--ink);
+  margin:0 auto 3rem 0;
+  max-height:480px;
+}
+.philosophy-sub{
+  font-size:12px;letter-spacing:.15em;
+  color:var(--ink-60);line-height:2.2;
+  font-weight:300;max-width:340px;
+  word-break:normal;
+}
+.philosophy-right{
+  padding-top:8rem;
+}
+.philosophy-quote{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(18px,2.2vw,26px);
+  font-style:italic;line-height:1.8;
+  color:var(--ink);margin-bottom:3rem;
+  word-break:normal;
+}
+.philosophy-quote::before{
+  content:'\201C';font-size:3em;line-height:.5;
+  color:var(--bone);display:block;margin-bottom:.5rem;
+}
+.philosophy-body{
+  font-size:14px;line-height:2.4;color:var(--ink-60);
+  font-weight:300;word-break:normal;
+}
+.philosophy-body + .philosophy-body{margin-top:1.5rem}
+.philosophy-sig{
+  margin-top:3rem;padding-top:2rem;
+  border-top:1px solid var(--bone);
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;color:var(--ink-60);
+  display:flex;flex-direction:column;gap:.3rem;
+}
+.philosophy-sig strong{
+  font-family:'Shippori Mincho',serif;font-style:normal;
+  font-size:16px;color:var(--ink);font-weight:500;
+}
+
+/* ─────────────────────────────────────────
+   SECTION: WORKS (Magazine Layout)
+───────────────────────────────────────── */
+.works{
+  background:var(--navy-deep);padding:10vmin 0;
+  position:relative;overflow:hidden;
+}
+.works-header{
+  max-width:1200px;margin:0 auto 4rem;
+  padding:0 6%;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.works-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(36px,5vw,64px);
+  font-weight:700;color:var(--paper);
+  line-height:1.2;letter-spacing:.03em;
+}
+.works-title-en{
+  display:block;font-family:'EB Garamond',serif;
+  font-size:clamp(11px,1vw,13px);
+  font-style:italic;letter-spacing:.3em;
+  color:var(--gold);margin-bottom:.75rem;
+}
+.works-note{
+  font-size:11px;letter-spacing:.15em;
+  color:rgba(245,240,232,.3);text-align:right;
+  line-height:1.8;
+}
+
+/* Asymmetric magazine grid */
+.works-grid{
+  max-width:1200px;margin:0 auto;padding:0 6%;
+  display:grid;
+  grid-template-columns:3fr 2px 2fr 2px 1.5fr;
+  grid-template-rows:auto 40px auto;
+  gap:0;
+}
+.works-gutter{background:rgba(245,240,232,.04)}
+.work-card{
+  position:relative;overflow:hidden;
+  cursor:none;
+}
+.work-card:nth-child(1){
+  grid-column:1;grid-row:1/4;
+  min-height:70vh;
+}
+.work-card:nth-child(3){
+  grid-column:3;grid-row:1/3;
+  min-height:40vh;
+}
+.work-card:nth-child(5){
+  grid-column:5;grid-row:1/2;
+  min-height:32vh;
+}
+.work-card-spacer{
+  grid-column:3;grid-row:3;
+  /* empty — intentional gap in the asymmetric layout */
+}
+.work-card:nth-child(7){
+  grid-column:5;grid-row:2/4;
+  min-height:38vh;
+}
+.work-bg{
+  position:absolute;inset:0;
+  transition:transform .8s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+.work-card:hover .work-bg{transform:scale(1.06)}
+
+/* Different architectural gradient for each work */
+.work-bg-1{background:linear-gradient(135deg,#162038 0%,#243256 40%,#1a2b48 100%)}
+.work-bg-2{background:linear-gradient(160deg,#162340 0%,#1e3458 50%,#14243c 100%)}
+.work-bg-3{background:linear-gradient(120deg,#1a2640 0%,#253660 60%,#1c2e50 100%)}
+/* Interior sketch overlay for each card */
+.work-sketch{
+  position:absolute;inset:0;opacity:.15;
+  display:flex;align-items:center;justify-content:center;
+}
+.work-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(14,14,12,.85) 0%,transparent 55%);
+  transition:opacity .4s;
+}
+.work-card:hover .work-overlay{opacity:.7}
+.work-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:2rem;z-index:2;
+  transform:translateY(8px);
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.work-card:hover .work-info{transform:translateY(0)}
+.work-category{
+  font-size:9px;letter-spacing:.35em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:.6rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.work-category::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
+.work-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(16px,2vw,24px);
+  font-weight:600;color:var(--paper);
+  line-height:1.4;margin-bottom:.5rem;
+}
+.work-loc{
+  font-size:11px;color:rgba(245,240,232,.4);
+  letter-spacing:.1em;
+}
+/* Before/after hover reveal */
+.work-ba-label{
+  position:absolute;top:1.5rem;left:1.5rem;z-index:3;
+  font-size:9px;letter-spacing:.3em;
+  padding:.3rem .8rem;
+  border:1px solid rgba(245,240,232,.25);
+  color:rgba(245,240,232,.5);
+  opacity:1;transition:opacity .3s;
+}
+.work-ba-after{
+  position:absolute;top:1.5rem;right:1.5rem;z-index:3;
+  font-size:9px;letter-spacing:.3em;
+  padding:.3rem .8rem;
+  border:1px solid rgba(181,154,94,.4);
+  color:var(--gold);opacity:0;
+  transition:opacity .3s .2s;
+}
+.work-card:hover .work-ba-label{opacity:0}
+.work-card:hover .work-ba-after{opacity:1}
+
+/* ─────────────────────────────────────────
+   SECTION: CRAFT (5 Strengths — Editorial)
+───────────────────────────────────────── */
+.craft{
+  background:var(--paper-dark);
+  padding:14vmin 0;
+  position:relative;
+}
+.craft-inner{max-width:1200px;margin:0 auto;padding:0 6%}
+.craft-eyebrow{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:.25em;color:var(--gold);
+  margin-bottom:5rem;
+  display:flex;align-items:center;gap:1.5rem;
+}
+.craft-eyebrow::after{content:'';flex:1;height:1px;background:var(--bone)}
+
+/* Large number + title + body — staggered horizontal layout */
+.craft-list{display:flex;flex-direction:column;gap:0}
+.craft-item{
+  display:grid;
+  grid-template-columns:120px 1fr 1.2fr;
+  gap:0 5%;
+  align-items:start;
+  padding:3.5rem 0;
+  border-bottom:1px solid var(--bone);
+  position:relative;
+}
+.craft-item:last-child{border-bottom:none}
+.craft-num{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(56px,8vw,100px);
+  font-weight:400;line-height:1;
+  color:var(--bone);letter-spacing:-.02em;
+  padding-top:.1em;
+}
+.craft-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(20px,2.5vw,32px);
+  font-weight:600;color:var(--ink);
+  line-height:1.4;letter-spacing:.04em;
+  padding-top:.5rem;
+  word-break:keep-all;
+}
+.craft-name span{
+  display:block;font-family:'EB Garamond',serif;
+  font-style:italic;font-size:.55em;
+  color:var(--ink-60);font-weight:400;
+  letter-spacing:.15em;margin-top:.4em;
+}
+.craft-body{
+  font-size:13px;line-height:2.3;color:var(--ink-60);
+  font-weight:300;word-break:normal;
+  padding-top:.5rem;
+}
+/* Hover: accent line slides in */
+.craft-item::before{
+  content:'';position:absolute;left:-6%;top:0;
+  width:3px;height:0;background:var(--rust);
+  transition:height .5s cubic-bezier(.16,1,.3,1);
+}
+.craft-item:hover::before{height:100%}
+.craft-item:hover .craft-num{color:var(--rust);transition:color .4s}
+
+/* ─────────────────────────────────────────
+   SECTION: PROCESS (Vertical Timeline)
+───────────────────────────────────────── */
+.process{
+  background:var(--paper);
+  padding:14vmin 0;
+  position:relative;overflow:hidden;
+}
+.process-bg-num{
+  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
+  font-family:'EB Garamond',serif;font-size:28vw;
+  font-weight:400;color:rgba(14,14,12,.03);
+  pointer-events:none;line-height:1;
+}
+.process-inner{max-width:900px;margin:0 auto;padding:0 6%}
+.process-header{margin-bottom:6rem}
+.process-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(28px,4vw,52px);
+  font-weight:700;line-height:1.3;letter-spacing:.04em;
+  color:var(--ink);
+}
+.process-title-en{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:.3em;color:var(--gold);
+  display:block;margin-bottom:1rem;
+}
+.process-timeline{
+  position:relative;padding-left:3rem;
+}
+.process-timeline::before{
+  content:'';position:absolute;left:6px;top:8px;bottom:0;
+  width:1px;background:var(--bone);
+}
+.process-step{
+  position:relative;margin-bottom:4rem;
+}
+.process-step:last-child{margin-bottom:0}
+.process-dot{
+  position:absolute;left:-3rem;top:5px;
+  width:13px;height:13px;border-radius:50%;
+  border:1px solid var(--bone);background:var(--paper);
+  transition:all .4s;
+}
+.process-step:hover .process-dot{
+  background:var(--rust);border-color:var(--rust);
+  transform:scale(1.3);
+}
+.process-step-num{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:.25em;color:var(--gold);
+  margin-bottom:.5rem;
+}
+.process-step-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(18px,2vw,24px);
+  font-weight:600;color:var(--ink);
+  margin-bottom:.75rem;letter-spacing:.05em;
+}
+.process-step-body{
+  font-size:13px;line-height:2.2;color:var(--ink-60);
+  font-weight:300;word-break:normal;max-width:540px;
+}
+
+/* ─────────────────────────────────────────
+   SECTION: CONTACT (Letter Interface)
+───────────────────────────────────────── */
+.contact{
+  background:var(--navy);
+  padding:14vmin 0;
+  position:relative;overflow:hidden;
+}
+.contact-paper-texture{
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(245,240,232,.015) 0px,
+      rgba(245,240,232,.015) 1px,
+      transparent 1px,transparent 28px
+    );
+  pointer-events:none;
+}
+.contact-inner{max-width:800px;margin:0 auto;padding:0 6%}
+.contact-intro{margin-bottom:5rem}
+.contact-intro-label{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:.3em;color:var(--gold);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.contact-intro-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+.contact-intro-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(26px,4vw,48px);
+  font-weight:700;color:var(--paper);
+  line-height:1.4;letter-spacing:.04em;
+  margin-bottom:1.5rem;
+}
+.contact-intro-body{
+  font-size:13px;line-height:2.3;
+  color:rgba(245,240,232,.45);font-weight:300;
+  word-break:normal;
+}
+
+/* Letter-style form */
+.letter-wrap{
+  background:rgba(245,240,232,.04);
+  border:1px solid rgba(245,240,232,.1);
+  backdrop-filter:blur(8px);
+  padding:3.5rem;
+  position:relative;
+}
+.letter-wrap::before{
+  content:'拝啓';
+  font-family:'Shippori Mincho',serif;
+  font-size:14px;color:rgba(245,240,232,.2);
+  display:block;margin-bottom:2.5rem;letter-spacing:.2em;
+}
+.letter-field{margin-bottom:2.5rem}
+.letter-field label{
+  display:block;font-size:10px;letter-spacing:.3em;
+  color:rgba(245,240,232,.35);margin-bottom:.75rem;
+  text-transform:uppercase;
+}
+.letter-field input,
+.letter-field textarea{
+  width:100%;background:transparent;
+  border:none;border-bottom:1px solid rgba(245,240,232,.15);
+  color:var(--paper);font-family:'Noto Sans JP',sans-serif;
+  font-size:15px;font-weight:300;
+  padding:.5rem 0;
+  outline:none;transition:border-color .3s;
+  resize:none;
+}
+.letter-field input:focus,
+.letter-field textarea:focus{
+  border-color:rgba(181,154,94,.6);
+}
+.letter-field input::placeholder,
+.letter-field textarea::placeholder{
+  color:rgba(245,240,232,.18);font-size:13px;
+}
+.letter-field textarea{min-height:120px;line-height:2}
+.letter-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
+.letter-closing{
+  font-family:'Shippori Mincho',serif;
+  font-size:13px;color:rgba(245,240,232,.2);
+  margin-top:2.5rem;margin-bottom:2.5rem;
+  letter-spacing:.15em;text-align:right;
+}
+.letter-submit{
+  display:flex;align-items:center;gap:1.5rem;
+  flex-wrap:wrap;
+}
+.btn-send{
+  background:var(--gold);color:var(--ink);
+  border:none;padding:1rem 2.5rem;
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:12px;letter-spacing:.25em;
+  font-weight:500;cursor:none;
+  transition:all .3s;
+  text-transform:uppercase;
+  position:relative;overflow:hidden;
+}
+.btn-send::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,.2);
+  transform:translateX(-101%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.btn-send:hover{background:var(--paper)}
+.btn-send:hover::after{transform:translateX(0)}
+.contact-tel{
+  font-family:'EB Garamond',serif;
+  font-size:24px;color:rgba(245,240,232,.35);
+  letter-spacing:.05em;text-decoration:none;
+  transition:color .3s;border-bottom:1px solid transparent;
+}
+.contact-tel:hover{color:var(--paper);border-color:rgba(245,240,232,.3)}
+.contact-tel-meta{
+  font-size:10px;letter-spacing:.2em;
+  color:rgba(245,240,232,.2);display:block;margin-top:.3rem;
+}
+
+/* ─────────────────────────────────────────
+   SECTION: AREA
+───────────────────────────────────────── */
+.area{
+  background:var(--paper-dark);
+  padding:5vmin 0;
+  border-top:1px solid var(--bone);
+}
+.area-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 6%;
+  display:flex;align-items:center;gap:3rem;flex-wrap:wrap;
+}
+.area-label{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:.25em;color:var(--gold);
+  white-space:nowrap;
+}
+.area-tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.area-tag{
+  font-size:11px;letter-spacing:.15em;
+  color:var(--ink-60);padding:.3rem 1rem;
+  border:1px solid var(--bone);
+  transition:all .2s;
+}
+.area-tag:hover{border-color:var(--rust);color:var(--rust)}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer{
+  background:var(--navy-deep);
+  padding:4rem 6%;
+  border-top:1px solid rgba(245,240,232,.06);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:2rem;flex-wrap:wrap;
+}
+.footer-brand{
+  font-family:'Shippori Mincho',serif;
+  font-size:20px;font-weight:500;color:var(--paper);
+  letter-spacing:.1em;margin-bottom:.75rem;
+}
+.footer-brand-en{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:.3em;
+  color:rgba(245,240,232,.3);display:block;margin-top:.4rem;
+}
+.footer-addr{
+  font-size:11px;line-height:2;
+  color:rgba(245,240,232,.3);font-weight:300;
+}
+.footer-copy{
+  font-size:10px;letter-spacing:.2em;
+  color:rgba(245,240,232,.2);
+  margin-top:3rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(245,240,232,.06);
+  max-width:1200px;margin-left:auto;margin-right:auto;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────── */
+.sr{opacity:0;transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+.sr-up{transform:translateY(40px)}
+.sr-left{transform:translateX(-30px)}
+.sr-right{transform:translateX(30px)}
+.sr-scale{transform:scale(.96)}
+.sr.in{opacity:1;transform:none}
+.sr-d1{transition-delay:.1s}
+.sr-d2{transition-delay:.2s}
+.sr-d3{transition-delay:.3s}
+.sr-d4{transition-delay:.4s}
+.sr-d5{transition-delay:.5s}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:900px){
+  header{padding:1rem 1.5rem}
+  header.scrolled{padding:.8rem 1.5rem}
+  nav a:not(.nav-contact){display:none}
+  .philosophy-inner{grid-template-columns:1fr;gap:3rem}
+  .philosophy-divider{display:none}
+  .philosophy-tate{writing-mode:horizontal-tb;max-height:none;font-size:clamp(20px,4vw,28px)}
+  .works-grid{
+    grid-template-columns:1fr;grid-template-rows:auto;
+    gap:1px;
+  }
+  .work-card:nth-child(1),
+  .work-card:nth-child(3),
+  .work-card:nth-child(5),
+  .work-card:nth-child(7){
+    grid-column:1;grid-row:auto;min-height:55vw;
+  }
+  .works-gutter{display:none}
+  .work-card-spacer{display:none}
+  .craft-item{grid-template-columns:60px 1fr;gap:0 1.5rem}
+  .craft-body{grid-column:2;margin-top:1rem}
+  .craft-item::before{left:-1.5rem}
+  .letter-grid{grid-template-columns:1fr}
+  .letter-wrap{padding:2rem}
+  .hero-statement{left:5%;max-width:85%}
+  .hero-meta{flex-wrap:wrap;gap:1.5rem}
+}
+@media(max-width:600px){
+  .works-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .philosophy-right{padding-top:0}
+  .process-timeline{padding-left:2rem}
+  .process-dot{left:-2rem}
+  .hero-h1{font-size:clamp(30px,9vw,44px)}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+═══════════════════════════════════════ -->
+<header id="header">
+  <a href="#top" class="logo-wordmark">
+    若葉リフォーム株式会社
+    <span>Exterior & Roof Painting — Soka, Saitama</span>
+  </a>
+  <nav>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#works">Works</a>
+    <a href="#craft">Craft</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg-img" id="hero-bg-img"></div>
+  <div class="hero-bg" id="hero-bg"></div>
+
+  <!-- Ghost typography — background layer -->
+  <div class="hero-vol" aria-hidden="true">若葉</div>
+
+  <!-- Architectural SVG sketch overlay -->
+  <svg class="hero-arch" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="60" y="100" width="280" height="360" stroke="white" stroke-width=".5"/>
+    <line x1="60" y1="100" x2="200" y2="30" stroke="white" stroke-width=".5"/>
+    <line x1="340" y1="100" x2="200" y2="30" stroke="white" stroke-width=".5"/>
+    <rect x="140" y="320" width="80" height="140" stroke="white" stroke-width=".5"/>
+    <rect x="80" y="180" width="70" height="90" stroke="white" stroke-width=".5"/>
+    <rect x="250" y="180" width="70" height="90" stroke="white" stroke-width=".5"/>
+    <line x1="60" y1="460" x2="340" y2="460" stroke="white" stroke-width=".5"/>
+    <line x1="0" y1="460" x2="60" y2="460" stroke="white" stroke-width=".3" stroke-dasharray="4 4"/>
+    <line x1="340" y1="460" x2="400" y2="460" stroke="white" stroke-width=".3" stroke-dasharray="4 4"/>
+    <text x="200" y="520" text-anchor="middle" fill="white" font-size="7" letter-spacing="4" font-family="serif" opacity=".4">ELEVATION — SOUTH FACADE</text>
+    <line x1="200" y1="30" x2="200" y2="0" stroke="white" stroke-width=".4" stroke-dasharray="3 3"/>
+    <circle cx="200" cy="30" r="4" stroke="white" stroke-width=".5"/>
+    <rect x="80" y="560" width="30" height="6" fill="white" opacity=".3"/>
+    <text x="120" y="567" fill="white" font-size="6" font-family="serif" opacity=".3">SCALE 1:100</text>
+  </svg>
+
+  <!-- Golden-ratio positioned statement -->
+  <div class="hero-statement">
+    <p class="hero-statement-en">Exterior & Roof Painting — Soka, Saitama</p>
+    <h1 class="hero-h1">
+      草加市の外壁塗装・<br>
+      屋根塗装は<br>
+      若葉リフォームへ。
+      <em>職人直営店・完全自社施工</em>
+    </h1>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+
+  <!-- Meta info bottom-left -->
+  <div class="hero-meta">
+    <dl class="hero-meta-item">
+      <dt>Location</dt>
+      <dd>埼玉県草加市金明町</dd>
+    </dl>
+    <dl class="hero-meta-item">
+      <dt>Tel</dt>
+      <dd>048-954-9132</dd>
+    </dl>
+    <dl class="hero-meta-item">
+      <dt>Hours</dt>
+      <dd>7:00〜19:00（日曜定休）</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PHILOSOPHY
+═══════════════════════════════════════ -->
+<section class="philosophy" id="philosophy">
+  <div class="philosophy-bg-text" aria-hidden="true">Philosophy</div>
+  <div class="philosophy-inner">
+
+    <div class="philosophy-left sr sr-left">
+      <p class="philosophy-label">Our Philosophy — 私たちの哲学</p>
+      <p class="philosophy-tate">
+        お客様のお悩みを<br>解決するため、<br>親身になって<br>お話を聞く
+      </p>
+      <p class="philosophy-sub">
+        草加市に店舗兼作業場を構え、<br>
+        地域密着で対応しています。<br>
+        お見積もり・ご相談は無料です。
+      </p>
+    </div>
+
+    <div class="philosophy-divider"></div>
+
+    <div class="philosophy-right sr sr-right sr-d2">
+      <blockquote class="philosophy-quote">
+        自分の家のつもりで、<br>
+        一塗り一塗りこだわりをもって<br>
+        丹念に塗り上げる。
+      </blockquote>
+      <p class="philosophy-body">
+        職人直営店・大工職人直営店で、下請けに出さない完全自社施工です。お客様のお悩みを解決するため、親身になってお話を聞き、お仕事する際には自分の家のつもりで代表はじめ、職人一同対応させていただきます。
+      </p>
+      <p class="philosophy-body">
+        外壁塗装・屋根塗装や雨漏り対策・屋根工事・防水工事・耐久保証などお家のことなら何でもお任せください。お見積もり、ご相談は無料です。まずはお気軽にご連絡ください。
+      </p>
+      <div class="philosophy-sig">
+        <span>Representative Director</span>
+        <strong>白石 龍二</strong>
+        <span>若葉リフォーム株式会社</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WORKS
+═══════════════════════════════════════ -->
+<section class="works" id="works">
+  <div class="works-header sr sr-up">
+    <div>
+      <h2 class="works-title">
+        <span class="works-title-en">Selected Works</span>
+        施工事例
+      </h2>
+    </div>
+    <p class="works-note">
+      ホバーで施工内容を<br>ご確認いただけます
+    </p>
+  </div>
+
+  <div class="works-grid">
+
+    <!-- Large card: 外壁塗装 — 住宅外観 -->
+    <div class="work-card sr sr-up">
+      <div class="work-bg work-bg-1" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=900&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-overlay"></div>
+      <span class="work-ba-label">BEFORE</span>
+      <span class="work-ba-after">AFTER</span>
+      <div class="work-info">
+        <p class="work-category">外壁塗装リフォーム</p>
+        <h3 class="work-name">外壁塗りかえ工事</h3>
+        <p class="work-loc">草加・川口エリア対応</p>
+      </div>
+    </div>
+
+    <div class="works-gutter"></div>
+
+    <!-- Medium card: 屋根塗装 -->
+    <div class="work-card sr sr-up sr-d1">
+      <div class="work-bg work-bg-2" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-overlay"></div>
+      <span class="work-ba-label">BEFORE</span>
+      <span class="work-ba-after">AFTER</span>
+      <div class="work-info">
+        <p class="work-category">屋根塗装リフォーム</p>
+        <h3 class="work-name">屋根塗りかえ工事</h3>
+        <p class="work-loc">草加・川口エリア対応</p>
+      </div>
+    </div>
+
+    <div class="works-gutter"></div>
+
+    <!-- Small card top: 防水工事 -->
+    <div class="work-card sr sr-up sr-d2">
+      <div class="work-bg work-bg-3" style="background-image:url('https://images.unsplash.com/photo-1698879837900-9dd9c4c2db80?w=700&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-overlay"></div>
+      <span class="work-ba-label">BEFORE</span>
+      <span class="work-ba-after">AFTER</span>
+      <div class="work-info">
+        <p class="work-category">防水工事・雨漏り対策</p>
+        <h3 class="work-name">シーリング防水工事</h3>
+        <p class="work-loc">草加・川口エリア対応</p>
+      </div>
+    </div>
+
+    <!-- Spacer (intentional gap) -->
+    <div class="work-card-spacer"></div>
+
+    <!-- Small card bottom-right: 木部塗装 -->
+    <div class="work-card sr sr-up sr-d3">
+      <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1712232907812-4bd219a99a49?w=700&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-overlay"></div>
+      <span class="work-ba-label">BEFORE</span>
+      <span class="work-ba-after">AFTER</span>
+      <div class="work-info">
+        <p class="work-category">木部塗装・その他リフォーム</p>
+        <h3 class="work-name">木部塗装・<br>雨樋補修工事</h3>
+        <p class="work-loc">草加・川口エリア対応</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CRAFT (5 STRENGTHS)
+═══════════════════════════════════════ -->
+<section class="craft" id="craft">
+  <div class="craft-inner">
+    <p class="craft-eyebrow">Five Reasons — 選ばれる理由</p>
+    <div class="craft-list">
+
+      <article class="craft-item sr sr-up">
+        <div class="craft-num">01</div>
+        <div>
+          <h3 class="craft-name">
+            職人直営店・完全自社施工
+            <span>Direct Craftsman Management</span>
+          </h3>
+        </div>
+        <p class="craft-body">
+          外部や下請けの営業マンが対応することもありません。弊社代表自らご説明をさせていただき、現場へ出向き作業を行います。
+        </p>
+      </article>
+
+      <article class="craft-item sr sr-up sr-d1">
+        <div class="craft-num">02</div>
+        <div>
+          <h3 class="craft-name">
+            明瞭価格・予算に合わせたプラン
+            <span>Transparent Pricing</span>
+          </h3>
+        </div>
+        <p class="craft-body">
+          価格の面で無理なく屋根や外壁の塗装をしていただけるように、明瞭価格提示を心がけ、ご予算に合わせて選べるプランをご用意しております。
+        </p>
+      </article>
+
+      <article class="craft-item sr sr-up sr-d2">
+        <div class="craft-num">03</div>
+        <div>
+          <h3 class="craft-name">
+            草加市・地元密着の専門店
+            <span>Local Expertise, Soka</span>
+          </h3>
+        </div>
+        <p class="craft-body">
+          草加市に店舗兼作業場を構え、お住まいの塗りかえ、防水工事など地元密着で対応しています。草加をはじめ、川口・越谷・八潮・三郷・浦和地域も対応いたします。
+        </p>
+      </article>
+
+      <article class="craft-item sr sr-up sr-d3">
+        <div class="craft-num">04</div>
+        <div>
+          <h3 class="craft-name">
+            塗装トラブルから守る説明会
+            <span>Consumer Education</span>
+          </h3>
+        </div>
+        <p class="craft-body">
+          「信頼できる業者」の見分けるノウハウや、失敗しない塗装の方法をお教えする個別の説明会を随時開催しています。料金・作業内容にご納得いただいてからお仕事を承ります。
+        </p>
+      </article>
+
+      <article class="craft-item sr sr-up sr-d4">
+        <div class="craft-num">05</div>
+        <div>
+          <h3 class="craft-name">
+            専門用語を使わない分かり易い説明
+            <span>Honest Communication</span>
+          </h3>
+        </div>
+        <p class="craft-body">
+          お客様の立場に立った専門用語を使わない分かり易いご説明を心がけております。お客様のお悩み、お住まいの状態をお聞きし、安心してお問い合わせいただけます。
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+═══════════════════════════════════════ -->
+<section class="process" id="process">
+  <div class="process-bg-num" aria-hidden="true">04</div>
+  <div class="process-inner">
+    <div class="process-header sr sr-up">
+      <h2 class="process-title">
+        <span class="process-title-en">How We Work</span>
+        ご依頼の流れ
+      </h2>
+    </div>
+    <div class="process-timeline">
+
+      <div class="process-step sr sr-up">
+        <div class="process-dot"></div>
+        <p class="process-step-num">Step 01</p>
+        <h3 class="process-step-name">お問い合わせ・ご相談</h3>
+        <p class="process-step-body">
+          お電話（048-954-9132）またはお問い合わせフォームよりご連絡ください。受付時間は7:00〜19:00（日曜定休）。お見積もり、ご相談は無料です。
+        </p>
+      </div>
+
+      <div class="process-step sr sr-up sr-d1">
+        <div class="process-dot"></div>
+        <p class="process-step-num">Step 02</p>
+        <h3 class="process-step-name">現地調査・ヒアリング</h3>
+        <p class="process-step-body">
+          弊社代表自らご説明をさせていただき、現場へ出向きお住まいの状態をお聞きします。お客様のお悩みを解決するため、親身になってお話を聞きます。
+        </p>
+      </div>
+
+      <div class="process-step sr sr-up sr-d2">
+        <div class="process-dot"></div>
+        <p class="process-step-num">Step 03</p>
+        <h3 class="process-step-name">お見積もり・ご説明会</h3>
+        <p class="process-step-body">
+          お客様のお悩み、お住まいの状態をお聞きしお見積りとお引渡しの日程をお伝えします。料金・作業内容にご納得いただいてからお仕事を承ります。
+        </p>
+      </div>
+
+      <div class="process-step sr sr-up sr-d3">
+        <div class="process-dot"></div>
+        <p class="process-step-num">Step 04</p>
+        <h3 class="process-step-name">施工・お引き渡し</h3>
+        <p class="process-step-body">
+          経験豊富な塗装職人が一塗り一塗りこだわりをもって丹念に塗り上げていきます。お仕事する際には自分の家のつもりで代表はじめ、職人一同対応させていただきます。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     AREA
+═══════════════════════════════════════ -->
+<div class="area">
+  <div class="area-inner">
+    <p class="area-label">Service Area</p>
+    <div class="area-tags">
+      <span class="area-tag">草加市</span>
+      <span class="area-tag">川口市</span>
+      <span class="area-tag">越谷市</span>
+      <span class="area-tag">八潮市</span>
+      <span class="area-tag">三郷市</span>
+      <span class="area-tag">浦和区</span>
+      <span class="area-tag">その他 埼玉県全域</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-paper-texture" aria-hidden="true"></div>
+  <div class="contact-inner">
+    <div class="contact-intro sr sr-up">
+      <p class="contact-intro-label">Get in Touch</p>
+      <h2 class="contact-intro-title">
+        お気軽に<br>
+        ご連絡ください。
+      </h2>
+      <p class="contact-intro-body">
+        お見積もり、ご相談は無料です。<br>
+        お客様の立場に立った専門用語を使わない<br>
+        分かり易いご説明を心がけております。
+      </p>
+    </div>
+
+    <div class="letter-wrap sr sr-up sr-d1">
+      <div class="letter-grid">
+        <div class="letter-field">
+          <label for="name">お名前</label>
+          <input type="text" id="name" placeholder="山田 太郎">
+        </div>
+        <div class="letter-field">
+          <label for="tel">お電話番号</label>
+          <input type="tel" id="tel" placeholder="090-0000-0000">
+        </div>
+      </div>
+      <div class="letter-field">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" placeholder="example@email.com">
+      </div>
+      <div class="letter-field">
+        <label for="address">お住まいの地区（任意）</label>
+        <input type="text" id="address" placeholder="草加市 ○○町">
+      </div>
+      <div class="letter-field">
+        <label for="message">ご相談内容</label>
+        <textarea id="message" placeholder="外壁の色あせが気になっています。一度見ていただけますか。"></textarea>
+      </div>
+      <p class="letter-closing">敬具</p>
+      <div class="letter-submit">
+        <button class="btn-send" type="button">送信する — Send</button>
+        <div>
+          <a href="tel:0489549132" class="contact-tel">048-954-9132</a>
+          <span class="contact-tel-meta">受付 7:00 – 19:00（日曜定休）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">
+        若葉リフォーム株式会社
+        <span>Wakaba Reform Co., Ltd.</span>
+      </p>
+      <p class="footer-addr">
+        〒340-0052 埼玉県草加市金明町854番地1<br>
+        TEL：048-954-9132 / 営業 7:00〜19:00（日曜定休）<br>
+        代表取締役：白石 龍二
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.75rem;align-items:flex-end">
+      <a href="#top" style="font-size:10px;letter-spacing:.3em;color:rgba(245,240,232,.2);text-decoration:none;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='rgba(245,240,232,.6)'" onmouseout="this.style.color='rgba(245,240,232,.2)'">↑ Back to Top</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 若葉リフォーム株式会社 — All Rights Reserved.</p>
+</footer>
+
+<script>
+/* ── Custom cursor ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animRing(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+
+/* ── Header shrink on scroll ── */
+const hdr = document.getElementById('header');
+window.addEventListener('scroll',()=>{
+  hdr.classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
+
+/* ── Hero parallax ── */
+const heroBg = document.getElementById('hero-bg');
+const heroBgImg = document.getElementById('hero-bg-img');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  if(s<window.innerHeight*1.5){
+    const t=`translateY(${s*.25}px) scale(1.06)`;
+    heroBg.style.transform=t;
+    heroBgImg.style.transform=t;
+  }
+},{passive:true});
+
+/* ── Scroll reveal ── */
+const srEls=document.querySelectorAll('.sr');
+const srObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');srObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+srEls.forEach(el=>srObs.observe(el));
+
+/* ── Smooth anchor scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();const off=document.querySelector('header').offsetHeight;window.scrollTo({top:t.offsetTop-off,behavior:'smooth'})}
+  });
+});
+
+/* ── Mobile: hide custom cursor ── */
+if('ontouchstart' in window){
+  document.body.style.cursor='auto';
+  cur.style.display='none';ring.style.display='none';
+}
+</script>
+</body>
+</html>
