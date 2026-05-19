@@ -127,21 +127,15 @@ nav a:hover{color:var(--rust)}
   overflow:hidden;
   background:#16233d;
 }
-/* Parallax image layer — real photo + navy overlay */
+/* Parallax image layer — navy gradient */
 .hero-bg{
   position:absolute;inset:0;
   background:
-    linear-gradient(160deg,rgba(22,35,61,.88) 0%,rgba(22,35,61,.45) 55%,rgba(22,35,61,.72) 100%);
+    linear-gradient(160deg,rgba(22,35,61,.95) 0%,rgba(22,35,61,.5) 55%,rgba(22,35,61,.8) 100%),
+    radial-gradient(ellipse 80% 60% at 65% 40%,#2e4275 0%,#16233d 100%);
   transform-origin:center;
   will-change:transform;
   z-index:1;
-}
-.hero-bg-img{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
-  transform-origin:center;
-  will-change:transform;
-  z-index:0;
 }
 /* Architectural line art overlay */
 .hero-arch{
@@ -837,7 +831,6 @@ footer{
      HERO
 ═══════════════════════════════════════ -->
 <section class="hero" id="top">
-  <div class="hero-bg-img" id="hero-bg-img"></div>
   <div class="hero-bg" id="hero-bg"></div>
 
   <!-- Ghost typography — background layer -->
@@ -956,9 +949,9 @@ footer{
 
   <div class="works-grid">
 
-    <!-- Large card: 外壁塗装 — 住宅外観 -->
+    <!-- Large card: 外壁塗装 -->
     <div class="work-card sr sr-up">
-      <div class="work-bg work-bg-1" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=900&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-bg work-bg-1"></div>
       <div class="work-overlay"></div>
       <span class="work-ba-label">BEFORE</span>
       <span class="work-ba-after">AFTER</span>
@@ -973,7 +966,7 @@ footer{
 
     <!-- Medium card: 屋根塗装 -->
     <div class="work-card sr sr-up sr-d1">
-      <div class="work-bg work-bg-2" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-bg work-bg-2"></div>
       <div class="work-overlay"></div>
       <span class="work-ba-label">BEFORE</span>
       <span class="work-ba-after">AFTER</span>
@@ -988,7 +981,7 @@ footer{
 
     <!-- Small card top: 防水工事 -->
     <div class="work-card sr sr-up sr-d2">
-      <div class="work-bg work-bg-3" style="background-image:url('https://images.unsplash.com/photo-1698879837900-9dd9c4c2db80?w=700&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-bg work-bg-3"></div>
       <div class="work-overlay"></div>
       <span class="work-ba-label">BEFORE</span>
       <span class="work-ba-after">AFTER</span>
@@ -1004,7 +997,7 @@ footer{
 
     <!-- Small card bottom-right: 木部塗装 -->
     <div class="work-card sr sr-up sr-d3">
-      <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1712232907812-4bd219a99a49?w=700&q=80&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+      <div class="work-bg" style="background:linear-gradient(145deg,#14203a 0%,#1e3058 60%,#182840 100%)"></div>
       <div class="work-overlay"></div>
       <span class="work-ba-label">BEFORE</span>
       <span class="work-ba-after">AFTER</span>
@@ -1260,13 +1253,10 @@ window.addEventListener('scroll',()=>{
 
 /* ── Hero parallax ── */
 const heroBg = document.getElementById('hero-bg');
-const heroBgImg = document.getElementById('hero-bg-img');
 window.addEventListener('scroll',()=>{
   const s=window.scrollY;
   if(s<window.innerHeight*1.5){
-    const t=`translateY(${s*.25}px) scale(1.06)`;
-    heroBg.style.transform=t;
-    heroBgImg.style.transform=t;
+    heroBg.style.transform=`translateY(${s*.25}px) scale(1.06)`;
   }
 },{passive:true});
 
