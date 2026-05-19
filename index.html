@@ -122,12 +122,16 @@ nav a:hover{color:var(--rust)}
    SECTION: HERO
 ───────────────────────────────────────── */
 .hero{
-  min-height:100vh;position:relative;
-  display:flex;align-items:flex-end;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
   overflow:hidden;
   background:#16233d;
+  padding-top:var(--header-h);
+  box-sizing:border-box;
 }
-/* Parallax image layer — navy gradient */
 .hero-bg{
   position:absolute;inset:0;
   background:
@@ -135,42 +139,22 @@ nav a:hover{color:var(--rust)}
     radial-gradient(ellipse 80% 60% at 65% 40%,#2e4275 0%,#16233d 100%);
   transform-origin:center;
   will-change:transform;
-  z-index:1;
+  z-index:0;
 }
-/* Architectural line art overlay */
 .hero-arch{
   position:absolute;right:5%;bottom:0;
   width:42%;height:100%;
   opacity:.1;
-  z-index:2;
+  z-index:1;
+  pointer-events:none;
 }
-.hero-vol{
-  position:absolute;
-  font-family:'Shippori Mincho',serif;
-  font-size:clamp(120px,18vw,260px);
-  font-weight:800;
-  color:rgba(255,255,255,.05);
-  line-height:1;
-  letter-spacing:-.02em;
-  top:50%;left:-2%;
-  transform:translateY(-50%);
-  pointer-events:none;user-select:none;
-  white-space:nowrap;
-}
-.hero-content{
-  position:relative;z-index:2;
-  padding:0 8% 10vh;
-  max-width:1400px;
-  width:100%;
-}
-/* Golden ratio positioning — statement sits at ~38% from bottom */
-/* Hero statement — ヘッダー高さ(72px)を考慮した縦位置 */
+
+/* Statement — flex item, 上部に配置 */
 .hero-statement{
-  position:absolute;
-  left:8%;
-  top:calc(var(--header-h) + 12vh);
-  z-index:3;
-  max-width:560px;
+  position:relative;
+  z-index:2;
+  padding:20vh 8% 0;
+  max-width:680px;
 }
 .hero-statement-en{
   font-family:'EB Garamond',serif;
@@ -178,24 +162,29 @@ nav a:hover{color:var(--rust)}
   color:var(--gold);
   letter-spacing:.4em;
   text-transform:uppercase;
-  margin-bottom:1.5rem;
+  margin-bottom:1.25rem;
   display:flex;align-items:center;gap:1rem;
 }
-.hero-statement-en::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero-statement-en::before{
+  content:'';display:block;
+  width:40px;height:1px;background:var(--gold);
+  flex-shrink:0;
+}
 .hero-h1{
   font-family:'Shippori Mincho',serif;
-  font-size:clamp(32px,4.2vw,62px);
+  font-size:clamp(28px,3.6vw,54px);
   font-weight:700;color:#f5f0e8;
-  line-height:1.4;letter-spacing:.04em;
-  margin-bottom:2rem;
+  line-height:1.5;letter-spacing:.04em;
+  margin-bottom:1.25rem;
   word-break:keep-all;
 }
 .hero-h1 em{
   display:block;font-style:normal;
-  font-size:.55em;font-weight:400;
-  color:rgba(245,240,232,.6);
-  letter-spacing:.12em;margin-top:.3em;
+  font-size:.52em;font-weight:400;
+  color:rgba(245,240,232,.55);
+  letter-spacing:.12em;margin-top:.25em;
 }
+/* Scroll — 右端絶対配置はそのまま */
 .hero-scroll{
   position:absolute;right:6%;bottom:8%;
   display:flex;flex-direction:column;
@@ -217,9 +206,13 @@ nav a:hover{color:var(--rust)}
   51%{transform:scaleY(1);transform-origin:bottom}
   100%{transform:scaleY(0);transform-origin:bottom}
 }
+/* Meta — flex item, 下部に配置 */
 .hero-meta{
-  position:absolute;bottom:8%;left:8%;z-index:3;
+  position:relative;
+  z-index:2;
+  padding:0 8% 7vh;
   display:flex;gap:3rem;
+  flex-wrap:wrap;
 }
 .hero-meta-item{
   display:flex;flex-direction:column;gap:.4rem;
@@ -834,10 +827,7 @@ footer{
 <section class="hero" id="top">
   <div class="hero-bg" id="hero-bg"></div>
 
-  <!-- Ghost typography — background layer -->
-  <div class="hero-vol" aria-hidden="true">若葉</div>
-
-  <!-- Architectural SVG sketch overlay -->
+<!-- Architectural SVG sketch overlay -->
   <svg class="hero-arch" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <rect x="60" y="100" width="280" height="360" stroke="white" stroke-width=".5"/>
     <line x1="60" y1="100" x2="200" y2="30" stroke="white" stroke-width=".5"/>
@@ -859,8 +849,8 @@ footer{
   <div class="hero-statement">
     <p class="hero-statement-en">Exterior & Roof Painting — Soka, Saitama</p>
     <h1 class="hero-h1">
-      草加市の外壁塗装・<br>
-      屋根塗装は<br>
+      草加市の<br>
+      外壁塗装・屋根塗装は<br>
       若葉リフォームへ。
       <em>職人直営店・完全自社施工</em>
     </h1>
